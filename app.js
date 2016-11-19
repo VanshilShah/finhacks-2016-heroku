@@ -20,7 +20,16 @@ app.set('view engine', 'pug'); // use either jade or ejs
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render('index', {messages: messages});
+  res.render('index', {balance: data.users[0].balance});
+});
+
+app.get('/getDetails', function(req, res){
+  res.send(data.transactions[0]);
+});
+
+app.post('/payBill', function(req, res){
+  data.balance = data.balance - 234.76;
+  res.send(data.transactions[0]);
 });
 
 app.post('/', function (req, res) {
