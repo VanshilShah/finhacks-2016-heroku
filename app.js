@@ -22,6 +22,9 @@ app.use(express.static('public'));
 app.get('/', function(req, res) {
   res.render('index', {balance: data.users[0].balance});
 });
+app.get('/login', function(req, res) {
+  res.render('login');
+});
 
 app.get('/getDetails', function(req, res){
   res.send(data.transactions[0]);
