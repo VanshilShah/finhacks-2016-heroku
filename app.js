@@ -4,8 +4,13 @@ var app = express();
 var path = require('path');
 
 // Set server port
-app.listen(4000);
+var port = process.env.PORT || 3001;
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
 console.log('server is running');
+
+var messages = [];
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug'); // use either jade or ejs
@@ -13,5 +18,11 @@ app.set('view engine', 'pug'); // use either jade or ejs
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index', {messages: messages});
+});
+
+app.post('/', function (req, res) {
+  //res.send(req.body)
+  messages.push(req.query.message);
+  res.send(req.query.message);
 });

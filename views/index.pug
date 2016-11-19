@@ -3,4 +3,6 @@ html
   head
   body(style='background-color: #E4F1FE; font-family: "Slabo", "sans-serif";')
     script(src='/javascripts/jquery-3.0.0')
-    b Scarborough Boyz Swag Website
+    each val, index in messages
+      p=('Scarborough Boyz Swag Website ' + val)
+      

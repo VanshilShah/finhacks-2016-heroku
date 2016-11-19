@@ -2,7 +2,7 @@
   "name": "finhacks",
   "version": "1.0.0",
   "description": "our finhacks-2016 project",
-  "main": "index.js",
+  "main": "app.js",
   "private": true,
   "scripts": {
     "start" : "node app",
