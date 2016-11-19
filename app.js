@@ -2,7 +2,9 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var data = require("./data.json");
 
+console.log(data);
 // Set server port
 var port = process.env.PORT || 3001;
 app.listen(port, function() {
@@ -22,7 +24,6 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function (req, res) {
-  //res.send(req.body)
   messages.push(req.query.message);
   res.send(req.query.message);
 });
