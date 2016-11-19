@@ -1,0 +1,26 @@
+{
+  "users":[
+    {
+      "name":"Grant Warden",
+      "username":"grantwarden",
+      "pass":"password",
+      "transactions":[],
+      "regular_transactions":[],
+      "balance":500.234,
+      "catagories":[
+        {
+          "name":"Living"
+        },
+        {
+          "name":"Living"
+        },
+        {
+          "name":"Living"
+        },
+        {
+          "name":"Living"
+        }
+      ]
+    }
+  ]
+}
