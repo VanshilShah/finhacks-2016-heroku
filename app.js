@@ -37,7 +37,7 @@ app.get('/main', function(req, res) {
     months[month] = transaction.value + months[month];
   }
   console.log(months[10]);
-    res.render('main', {transactions: data.users[userIndex].transactions});
+    res.render('main', {transactions: data.users[0].transactions, name: data.users[0].name});
 });
 
 app.get('/getDetails', function(req, res){
