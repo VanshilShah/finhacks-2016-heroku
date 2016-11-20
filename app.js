@@ -3,7 +3,9 @@ var express = require('express');
 var app = express();
 var path = require('path');
 var data = require("./data.json");
-
+var moment = require('moment');
+var userIndex = 0;
+var user = data.users[userIndex];
 console.log(data);
 // Set server port
 var port = process.env.PORT || 3001;
@@ -27,7 +29,15 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/main', function(req, res) {
-    res.render('main', {transactions: data.users[0].transactions});
+  months = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+  for(let i = 0; i < user.transactions.length; i++){
+    let transaction = user.transactions[i];
+    var date = moment(transaction.date, "DD-MM-YYYY");
+    var month = date.get('month');
+    months[month] = transaction.value + months[month];
+  }
+  console.log(months[10]);
+    res.render('main', {transactions: data.users[userIndex].transactions});
 });
 
 app.get('/getDetails', function(req, res){
@@ -35,8 +45,8 @@ app.get('/getDetails', function(req, res){
 });
 
 app.post('/payBill', function(req, res){
-  data.users[0].balance = data.users[0].balance - 234.76;
-  res.send('Current balance' + data.users[0].balance);
+  data.users[userIndex].balance = data.users[userIndex].balance - 23.76;
+  res.send('Current balance' + data.users[userIndex].balance);
 });
 
 app.post('/', function (req, res) {

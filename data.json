@@ -166,7 +166,24 @@
             "date" : "19/11/2016"
         }
       ],
-      "regular_transactions":[],
+      "regular_transactions":[
+        {
+            "from": "grantwarden",
+            "to": "Toronto Hydro",
+            "number": 20,
+            "value": 80,
+            "category" : 1,
+            "day" : 19
+        },
+        {
+            "from": "grantwarden",
+            "to": "Enbridge Gas",
+            "number": 15,
+            "value": 130,
+            "category" : 0,
+            "day" : 11
+        }
+      ],
       "balance":500.23,
       "catagories":[
         {
