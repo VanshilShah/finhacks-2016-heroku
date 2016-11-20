@@ -4,25 +4,22 @@ var Script = function () {
 
     $(function () {
       // data stolen from http://howmanyleft.co.uk/vehicle/jaguar_'e'_type
-      var tax_data = [
-           {"period": "2011 Q3", "licensed": 3407, "sorned": 660},
-           {"period": "2011 Q2", "licensed": 3351, "sorned": 629},
-           {"period": "2011 Q1", "licensed": 3269, "sorned": 618},
-           {"period": "2010 Q4", "licensed": 3246, "sorned": 661},
-           {"period": "2009 Q4", "licensed": 3171, "sorned": 676},
-           {"period": "2008 Q4", "licensed": 3155, "sorned": 681},
-           {"period": "2007 Q4", "licensed": 3226, "sorned": 620},
-           {"period": "2006 Q4", "licensed": 3245, "sorned": null},
-           {"period": "2005 Q4", "licensed": 3289, "sorned": null}
-      ];
-      Morris.Line({
-        element: 'hero-graph',
-        data: tax_data,
-        xkey: 'period',
-        ykeys: ['licensed', 'sorned'],
-        labels: ['Licensed', 'Off the road'],
-        lineColors:['#4ECDC4','#ed5565']
-      });
+        var user_data = [
+            {"period": "Dining Out", "expected": 3407, "current": 660},
+            {"period": "Transportation and Education", "expected": 3351, "current": 629},
+            {"period": "Shopping and Entertainment", "expected": 3269, "current": 618},
+            {"period": "Living Expense", "expected": 3246, "current": 661},
+            {"period": "Other", "expected": 3171, "current": 676}
+
+        ];
+        Morris.Line({
+            element: 'lineChart',
+            data: user_data,
+            xkey: 'period',
+            ykeys: ['expected', 'current'],
+            labels: ['Average', 'current'],
+            lineColors: ['#4ECDC4', '#ed5565']
+        });
 
       Morris.Donut({
         element: 'hero-donut',

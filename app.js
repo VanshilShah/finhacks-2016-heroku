@@ -27,6 +27,9 @@ app.get('/', function(req, res) {
 app.get('/login', function(req, res) {
   res.render('login');
 });
+app.get('/chartjs', function(req, res) {
+    res.render('chartjs');
+});
 
 app.get('/main', function(req, res) {
   months = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
@@ -43,6 +46,7 @@ app.get('/main', function(req, res) {
 app.post('/getDetails', function(req, res){
   res.send(user.transactions[0]);
 });
+
 app.get('/getDetails', function(req, res){
   res.send(user.transactions[0]);
 });
