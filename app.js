@@ -27,11 +27,11 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/getDetails', function(req, res){
-  res.send(data.transactions[0]);
+  res.send(data.users[0].transactions[0]);
 });
 
 app.post('/payBill', function(req, res){
-  data.balance = data.balance - 234.76;
+  data.users[0].balance = data.users[0].balance - 234.76;
   res.send(data.transactions[0]);
 });
 
