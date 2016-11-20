@@ -30,23 +30,28 @@ app.get('/login', function(req, res) {
 
 app.get('/main', function(req, res) {
   months = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+
   for(let i = 0; i < user.transactions.length; i++){
     let transaction = user.transactions[i];
     var date = moment(transaction.date, "DD-MM-YYYY");
     var month = date.get('month');
     months[month] = transaction.value + months[month];
   }
+  
   console.log(months[10]);
-    res.render('main', {transactions: data.users[0].transactions, name: data.users[0].name});
+    res.render('main', {transactions: user.transactions, name: user.name});
 });
 
+app.post('/getDetails', function(req, res){
+  res.send(user.transactions[0]);
+});
 app.get('/getDetails', function(req, res){
-  res.send(data.users[0].transactions[0]);
+  res.send(user.transactions[0]);
 });
 
 app.post('/payBill', function(req, res){
-  data.users[userIndex].balance = data.users[userIndex].balance - 23.76;
-  res.send('Current balance' + data.users[userIndex].balance);
+  user.balance = user.balance - 23.76;
+  res.send('Current balance' + user.balance);
 });
 
 app.post('/', function (req, res) {
