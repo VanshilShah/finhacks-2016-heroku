@@ -27,7 +27,7 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/main', function(req, res) {
-    res.render('main');
+    res.render('main', {transactions: data.users[0].transactions});
 });
 
 app.get('/getDetails', function(req, res){

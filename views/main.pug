@@ -216,79 +216,20 @@ html(lang='en')
                             |  Status
                           th
                       tbody
-                        tr
-                          td
-                            a(href='basic_table.html#') Company Ltd
-                          td.hidden-phone Lorem Ipsum dolor
-                          td 12000.00$
-                          td
-                            span.label.label-info.label-mini Due
-                          td
-                            button.btn.btn-success.btn-xs
-                              i.fa.fa-check
-                            button.btn.btn-primary.btn-xs
-                              i.fa.fa-pencil
-                            button.btn.btn-danger.btn-xs
-                              i.fa.fa-trash-o
-                        tr
-                          td
-                            a(href='basic_table.html#')
-                              | Dashgum co
-                          td.hidden-phone Lorem Ipsum dolor
-                          td 17900.00$
-                          td
-                            span.label.label-warning.label-mini Due
-                          td
-                            button.btn.btn-success.btn-xs
-                              i.fa.fa-check
-                            button.btn.btn-primary.btn-xs
-                              i.fa.fa-pencil
-                            button.btn.btn-danger.btn-xs
-                              i.fa.fa-trash-o
-                        tr
-                          td
-                            a(href='basic_table.html#')
-                              | Another Co
-                          td.hidden-phone Lorem Ipsum dolor
-                          td 14400.00$
-                          td
-                            span.label.label-success.label-mini Paid
-                          td
-                            button.btn.btn-success.btn-xs
-                              i.fa.fa-check
-                            button.btn.btn-primary.btn-xs
-                              i.fa.fa-pencil
-                            button.btn.btn-danger.btn-xs
-                              i.fa.fa-trash-o
-                        tr
-                          td
-                            a(href='basic_table.html#')
-                              | Dashgum ext
-                          td.hidden-phone Lorem Ipsum dolor
-                          td 22000.50$
-                          td
-                            span.label.label-success.label-mini Paid
-                          td
-                            button.btn.btn-success.btn-xs
-                              i.fa.fa-check
-                            button.btn.btn-primary.btn-xs
-                              i.fa.fa-pencil
-                            button.btn.btn-danger.btn-xs
-                              i.fa.fa-trash-o
-                        tr
-                          td
-                            a(href='basic_table.html#') Total Ltd
-                          td.hidden-phone Lorem Ipsum dolor
-                          td 12120.00$
-                          td
-                            span.label.label-warning.label-mini Due
-                          td
-                            button.btn.btn-success.btn-xs
-                              i.fa.fa-check
-                            button.btn.btn-primary.btn-xs
-                              i.fa.fa-pencil
-                            button.btn.btn-danger.btn-xs
-                              i.fa.fa-trash-o
+                        each transaction, index in transactions
+                          tr
+                            td
+                              a(href='basic_table.html#')=(transaction.to)
+                            td=('$' + transaction.value)
+                            td
+                              span.label.label-info.label-mini Due
+                            td
+                              button.btn.btn-success.btn-xs
+                                i.fa.fa-check
+                              button.btn.btn-primary.btn-xs
+                                i.fa.fa-pencil
+                              button.btn.btn-danger.btn-xs
+                                i.fa.fa-trash-o
                   // /content-panel
                 // /col-md-12
               // /row
@@ -328,4 +269,3 @@ html(lang='en')
     // script for this page
     script(src='assets/js/sparkline-chart.js')
     script(src='assets/js/zabuto_calendar.js')
-
