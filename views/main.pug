@@ -10,14 +10,22 @@ html(lang='en')
     // Bootstrap core CSS
     link(href='assets/css/bootstrap.css', rel='stylesheet')
     // external css
+    script(src='http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js')
+    script(src='http://code.jquery.com/jquery-1.8.2.min.js')
     link(href='assets/font-awesome/css/font-awesome.css', rel='stylesheet')
     link(rel='stylesheet', type='text/css', href='assets/css/zabuto_calendar.css')
     link(rel='stylesheet', type='text/css', href='assets/js/gritter/css/jquery.gritter.css')
     link(rel='stylesheet', type='text/css', href='assets/lineicons/style.css')
     // Custom styles for this template
     link(href='assets/css/style.css', rel='stylesheet')
+    link(rel='stylesheet', href='http://cdn.oesmith.co.uk/morris-0.4.3.min.css')
     link(href='assets/css/style-responsive.css', rel='stylesheet')
     script(src='assets/js/chart-master/Chart.js')
+    script(src='assets/js/morris-conf.js')
+
+    script(src='assets/js/morris-conf.js')
+    script(src='javascripts/analytics.js')
+
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     //if lt IE 9
       script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -83,54 +91,7 @@ html(lang='en')
                 li.external
                   a(href='#') See All Tasks
             // settings end
-            // inbox dropdown start
-            li#header_inbox_bar.dropdown
-              a.dropdown-toggle(data-toggle='dropdown', href='index.html#')
-                i.fa.fa-envelope-o
-                span.badge.bg-theme 5
-              ul.dropdown-menu.extended.inbox
-                .notify-arrow.notify-arrow-green
-                li
-                  p.green You have 5 new messages
-                li
-                  a(href='index.html#')
-                    span.photo
-                      img(alt='avatar', src='assets/img/ui-zac.jpg')
-                    span.subject
-                      span.from Zac Snider
-                      span.time Just now
-                    span.message
-                      | Hi mate, how is everything?
-                li
-                  a(href='index.html#')
-                    span.photo
-                      img(alt='avatar', src='assets/img/ui-divya.jpg')
-                    span.subject
-                      span.from Divya Manian
-                      span.time 40 mins.
-                    span.message
-                      | Hi, I need your help with this.
-                li
-                  a(href='index.html#')
-                    span.photo
-                      img(alt='avatar', src='assets/img/ui-danro.jpg')
-                    span.subject
-                      span.from Dan Rogers
-                      span.time 2 hrs.
-                    span.message
-                      | Love your new Dashboard.
-                li
-                  a(href='index.html#')
-                    span.photo
-                      img(alt='avatar', src='assets/img/ui-sherman.jpg')
-                    span.subject
-                      span.from Dj Sherman
-                      span.time 4 hrs.
-                    span.message
-                      | Please, answer asap.
-                li
-                  a(href='index.html#') See all messages
-            // inbox dropdown end
+
           // notification end
         .top-menu
           ul.nav.pull-right.top-menu
@@ -193,12 +154,12 @@ html(lang='en')
                     h3 OK!
                   p Your server is working perfectly. Relax & enjoy.
               .row.mt
-                .col-md-12
+                .col-lg-12
                   .content-panel
                     table.table.table-striped.table-advance.table-hover
                       h4
                         i.fa.fa-angle-right
-                        |  Advanced Table
+                        |  Bills
                       hr
                       thead
                         tr
@@ -230,22 +191,46 @@ html(lang='en')
                                 i.fa.fa-pencil
                               button.btn.btn-danger.btn-xs
                                 i.fa.fa-trash-o
-                  // /content-panel
-                // /col-md-12
-              // /row
+                  .row.mt
+                    .col-lg-12
+                      .content-panel
+                          table.table.table-striped.table-advance.table-hover
+                            h4
+                              i.fa.fa-angle-right
+                              |  Recent Transactions
+                            hr
+                            thead
+                              tr
+                                th
+                                  i.fa.fa-bullhorn
+                                  |  Company
+                                th.hidden-phone
+                                  i.fa.fa-question-circle
+                                  |  Descrition
+                                th
+                                  i.fa.fa-bookmark
+                                  |  Profit
+                                th
+                                  i.fa.fa-edit
+                                  |  Status
+                                th
+                            tbody
+                              each transaction, index in transactions
+                                tr
+                                  td
+                                    a(href='basic_table.html#')=(transaction.to)
+                                  td=('$' + transaction.value)
+                                  td
+                                    span.label.label-info.label-mini Due
+                                  td
+                                    button.btn.btn-success.btn-xs
+                                      i.fa.fa-check
+                                    button.btn.btn-primary.btn-xs
+                                      i.fa.fa-pencil
+                                    button.btn.btn-danger.btn-xs
+                                      i.fa.fa-trash-o
 
-              .row.mt
-                // custom chart end
-              // /row
-            // /col-lg-9 END SECTION MIDDLE
-            //
-              **********************************************************************************************************************************************************
-              RIGHT SIDEBAR CONTENT
-              ***********************************************************************************************************************************************************
-            .col-lg-3.ds
-              // COMPLETED ACTIONS DONUTS CHART
-              h3 TIMELINE
-              // /col-lg-3
+
       // main content end
       // footer start
       footer.site-footer
@@ -269,3 +254,4 @@ html(lang='en')
     // script for this page
     script(src='assets/js/sparkline-chart.js')
     script(src='assets/js/zabuto_calendar.js')
+
