@@ -69,7 +69,7 @@ app.get('/main', function(req, res) {
 
 
   console.log(months[10]);
-    res.render('main', {balance: user.balance, transactions: data.users[0].transactions, name: data.users[0].name, regular_transactions: data.users[0].regular_transactions, catagories: catagories, lineChartData: lineChartData});
+    res.render('main', {balance: user.balance, transactions: user.transactions, name: data.users[0].name, regular_transactions: data.users[0].regular_transactions, catagories: catagories, lineChartData: lineChartData});
 
 
 });
@@ -87,18 +87,20 @@ app.post('/getDetails', function(req, res){
   res.send("Bill to: " + bill.to + ". Due on the " + bill.day + "th. Payment of: " + bill.value);
 });
 
-app.post('/payBill', function(req, res){
-//  app.use(bodyParser.json());
-  console.log(req.body);
-  var bill = user.transactions[bill?0:1]
-  user.balance = user.balance - bill.value;
-  res.send('Bill successfully paid, current balance ' + user.balance);
-});
 app.get('/payBill', function(req, res){
 //  app.use(bodyParser.json());
   console.log(req.body);
   var bill = user.transactions[bill?0:1]
-  user.balance = user.balance - bill.value;
+  user.balance = user.balance - 80.54;
+
+  user.transactions.push({
+      "from": "grantwarden",
+      "to": "Toronto Hydro",
+      "number": user.transactions.length,
+      "value": 80.54,
+      "category" : 0,
+      "day" : 11
+  });
   res.send('Bill successfully paid, current balance ' + user.balance);
 });app.get('/add', function(req, res){
 //  app.use(bodyParser.json());
