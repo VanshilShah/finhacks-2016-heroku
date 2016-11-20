@@ -31,17 +31,47 @@ app.get('/', function(req, res) {
 app.get('/login', function(req, res) {
   res.render('login');
 });
-
 app.get('/main', function(req, res) {
   months = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+  catagories = [0, 0, 0, 0, 0];
   for(var i = 0; i < user.transactions.length; i++){
     var transaction = user.transactions[i];
     var date = moment(transaction.date, "DD-MM-YYYY");
+    catagories[transaction.category].spent = catagories[transaction.category].spent + transaction.value;
     var month = date.get('month');
     months[month] = transaction.value + months[month];
   }
+  var lineChartData = {
+      labels : [],
+      datasets : [
+          {
+              fillColor : "rgba(220,220,220,0.5)",
+              strokeColor : "rgba(220,220,220,1)",
+              pointColor : "rgba(220,220,220,1)",
+              pointStrokeColor : "#fff",
+              data : []
+          },
+          {
+              fillColor : "rgba(151,187,205,0.5)",
+              strokeColor : "rgba(151,187,205,1)",
+              pointColor : "rgba(151,187,205,1)",
+              pointStrokeColor : "#fff",
+              data : []
+          }
+      ]
+
+  };
+  for(var i = 0; i < catagories.length; i++){
+    lineChartData.labels.push(user.catagories[i].name);
+    lineChartData.datasets[0].data.push(user.catagories[i].value);
+    lineChartData.datasets[1].data.push(user.catagories[i].max);
+  }
+
+
   console.log(months[10]);
-    res.render('main', {transactions: data.users[0].transactions, name: data.users[0].name, regular_transactions: data.users[0].regular_transactions});
+    res.render('main', {balance: user.balance, transactions: data.users[0].transactions, name: data.users[0].name, regular_transactions: data.users[0].regular_transactions, catagories: catagories, lineChartData: lineChartData});
+
+
 });
 
 var bill = false;
@@ -64,7 +94,13 @@ app.post('/payBill', function(req, res){
   user.balance = user.balance - bill.value;
   res.send('Bill successfully paid, current balance ' + user.balance);
 });
-
+app.get('/payBill', function(req, res){
+//  app.use(bodyParser.json());
+  console.log(req.body);
+  var bill = user.transactions[bill?0:1]
+  user.balance = user.balance - bill.value;
+  res.send('Bill successfully paid, current balance ' + user.balance);
+});
 app.post('/', function (req, res) {
   messages.push(req.query.message);
   res.send(req.query.message);

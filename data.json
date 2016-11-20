@@ -187,22 +187,29 @@
       "balance":500.23,
       "catagories":[
         {
-          "name":"Living"
+          "name":"Living",
+          "max":460,
+          "spent":0
         },
         {
-          "name":"Take Out"
+          "name":"Take Out",
+          "max":120,
+          "spent":0
         },
         {
-          "name":"Transportation"
+          "name":"Transportation and Education",
+          "max":240,
+          "spent":0
         },
         {
-          "name":"Shopping"
+          "name":"Shopping",
+          "max":60,
+          "spent":0
         },
         {
-          "name":"Other"
-        },
-        {
-          "name":"Education"
+          "name":"Other",
+          "max":130,
+          "spent":0
         }
       ]
     }
