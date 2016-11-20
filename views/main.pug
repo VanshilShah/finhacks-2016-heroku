@@ -138,7 +138,7 @@ html(lang='en')
         #sidebar.nav-collapse(style="position:fixed;")
           // sidebar menu start
           ul#nav-accordion.sidebar-menu
-          
+
             h5.centered=name
             li.mt
               a.active(href='#payments')
@@ -173,12 +173,11 @@ html(lang='en')
                           th
                             i.fa.fa-usd
                             |  Amount:
-                          th
+
                       tbody
-                        each transaction, index in transactions
+                        each transaction, index in regular_transactions
                           tr
-                            td
-                              a(href='basic_table.html#')=(transaction.to)
+                            td=(transaction.to)
                             td=('$' + transaction.value)
 
                   // /content-panel
@@ -194,32 +193,15 @@ html(lang='en')
                         tr
                           th
                             i.fa.fa-bullhorn
-                            |  Company
+                            |  Transaction Description:
                           th.hidden-phone
                             i.fa.fa-question-circle
-                            |  Descrition
-                          th
-                            i.fa.fa-bookmark
-                            |  Profit
-                          th
-                            i.fa.fa-edit
-                            |  Status
-                          th
+                            |  Amount:
                       tbody
                         each transaction, index in transactions
                           tr
-                            td
-                              a(href='basic_table.html#')=(transaction.to)
+                            td=(transaction.to)
                             td=('$' + transaction.value)
-                            td
-                              span.label.label-info.label-mini Due
-                            td
-                              button.btn.btn-success.btn-xs
-                                i.fa.fa-check
-                              button.btn.btn-primary.btn-xs
-                                i.fa.fa-pencil
-                              button.btn.btn-danger.btn-xs
-                                i.fa.fa-trash-o
                   // /content-panel
                 // /col-md-6
 
