@@ -100,6 +100,11 @@ app.get('/payBill', function(req, res){
   var bill = user.transactions[bill?0:1]
   user.balance = user.balance - bill.value;
   res.send('Bill successfully paid, current balance ' + user.balance);
+});app.get('/add', function(req, res){
+//  app.use(bodyParser.json());
+  console.log(req.body);
+  user.balance = user.balance + 300;
+  res.send('Bill successfully paid, current balance ' + user.balance);
 });
 app.post('/', function (req, res) {
   messages.push(req.query.message);
