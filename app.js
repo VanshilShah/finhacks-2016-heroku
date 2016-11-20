@@ -26,6 +26,10 @@ app.get('/login', function(req, res) {
   res.render('login');
 });
 
+app.get('/main', function(req, res) {
+    res.render('main');
+});
+
 app.get('/getDetails', function(req, res){
   res.send(data.transactions[0]);
 });
