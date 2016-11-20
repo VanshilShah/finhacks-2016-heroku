@@ -6,7 +6,7 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='Dashboard')
     meta(name='keyword', content='Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina')
-    title PayEZ
+    title My Account
     // Bootstrap core CSS
     link(href='assets/css/bootstrap.css', rel='stylesheet')
     // external css
@@ -29,18 +29,18 @@ html(lang='en')
         TOP BAR CONTENT & NOTIFICATIONS
         ***********************************************************************************************************************************************************
       // header start
-      header.header.black-bg
+      header.header.black-bg(style="position:fixed;")
         .sidebar-toggle-box
           .fa.fa-bars.tooltips(data-placement='right', data-original-title='Toggle Navigation')
         // logo start
-        a.logo(href='index.html')
-          b PayEZ
+        a.logo(href='main')
+          b My Account
         // logo end
         #top_menu.nav.notify-row
           // notification start
           ul.nav.top-menu
             // settings start
-            li.dropdown
+          //li.dropdown
               a.dropdown-toggle(data-toggle='dropdown', href='index.html#')
                 i.fa.fa-tasks
                 span.badge.bg-theme 4
@@ -76,7 +76,7 @@ html(lang='en')
                   a(href='#') See All Tasks
             // settings end
             // inbox dropdown start
-            li#header_inbox_bar.dropdown
+            //li#header_inbox_bar.dropdown
               a.dropdown-toggle(data-toggle='dropdown', href='index.html#')
                 i.fa.fa-envelope-o
                 span.badge.bg-theme 5
@@ -127,7 +127,7 @@ html(lang='en')
         .top-menu
           ul.nav.pull-right.top-menu
             li
-              a.logout(href='login.html') Logout
+              a.logout(href='login' style="background-color:#EEE; color:#26A65B;") Logout
       // header end
       //
         **********************************************************************************************************************************************************
@@ -135,15 +135,13 @@ html(lang='en')
         ***********************************************************************************************************************************************************
       // sidebar start
       aside
-        #sidebar.nav-collapse
+        #sidebar.nav-collapse(style="position:fixed;")
           // sidebar menu start
           ul#nav-accordion.sidebar-menu
-            p.centered
-              a(href='profile.html')
-                img.img-circle(src='assets/img/ui-sam.jpg', width='60')
+          
             h5.centered=name
             li.mt
-              a.active(href='index.html')
+              a.active(href='#payments')
                 i.fa.fa-dashboard
                 span My Account
 
@@ -155,7 +153,7 @@ html(lang='en')
         ***********************************************************************************************************************************************************
       // main content start
       section#main-content
-        section.wrapper
+        section.wrapper#payments
           .row
             .col-lg-12.main-chart
               h2.centered=name+ "'s Finances"
