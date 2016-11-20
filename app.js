@@ -36,7 +36,7 @@ app.get('/getDetails', function(req, res){
 
 app.post('/payBill', function(req, res){
   data.users[0].balance = data.users[0].balance - 234.76;
-  res.send(data.users[0].balance);
+  res.send('Current balance' + data.users[0].balance);
 });
 
 app.post('/', function (req, res) {
